@@ -45,7 +45,7 @@ GOOS=windows GOARCH=amd64 go build -o termview.exe
 ### Option 2: Build from Source (Requires Go)
 
 ```bash
-git clone https://github.com/yourusername/termview.git
+git clone https://github.com/javy99/termview.git
 cd termview
 go build -o termview
 ```
