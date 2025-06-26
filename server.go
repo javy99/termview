@@ -1,13 +1,18 @@
-package cmd
+package main
 
 import (
+	"embed"
 	"fmt"
+	"io/fs"
 	"log"
 	"net/http"
 	"os"
 
 	"github.com/javy99/termview/internal/terminal"
 )
+
+//go:embed static/*
+var staticFiles embed.FS
 
 func Run() {
 	if len(os.Args) < 2 {
@@ -17,7 +22,12 @@ func Run() {
 
 	terminal.SetCommand(os.Args[1:])
 
-	http.Handle("/", http.FileServer(http.Dir("./static")))
+	staticFS, err := fs.Sub(staticFiles, "static")
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	http.Handle("/", http.FileServer(http.FS(staticFS)))
 	http.HandleFunc("/ws", terminal.Handler)
 
 	port := "8080"

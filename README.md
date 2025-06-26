@@ -131,8 +131,7 @@ termview lets you share any terminal-based application over the web.
 ```text
 termview/
 ├── main.go                  # App entry point
-├── cmd/
-│   └── server.go            # Server setup and flags
+├── server.go                # Server setup and flags
 ├── internal/
 │   └── terminal/
 │       └── handler.go       # WebSocket + PTY handling logic
