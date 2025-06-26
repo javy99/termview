@@ -7,7 +7,52 @@
 
 ---
 
+## 📥 Installation
+
+You can either **download a prebuilt binary** or **build from source**.
+
+### Option 1: Download from Releases
+
+Go to the [Releases page](https://github.com/javy99/termview/releases) and download the right binary for your OS:
+
+| OS       | Download File     |
+|----------|-------------------|
+| Linux    | `termview-linux`  |
+| macOS    | `termview-mac`    |
+| Windows  | `termview.exe`    |
+
+> ✅ Make the binary executable (Linux/macOS):
+> ```bash
+> chmod +x termview-linux
+> ./termview-linux bash
+> ```
+
+Or to build cross-platform binaries manually:
+
+```bash
+# Linux
+GOOS=linux GOARCH=amd64 go build -o termview-linux
+
+# macOS
+GOOS=darwin GOARCH=amd64 go build -o termview-mac
+
+# Windows
+GOOS=windows GOARCH=amd64 go build -o termview.exe
+```
+
+---
+
+### Option 2: Build from Source (Requires Go)
+
+```bash
+git clone https://github.com/yourusername/termview.git
+cd termview
+go build -o termview
+```
+---
+
 ## 🚀 Quick Start
+
 
 ### 1. Build the binary
 
